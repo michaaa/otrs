@@ -155,7 +155,7 @@ sub Data {
         my $CryptObjectSMIME = Kernel::System::Crypt->new( %{$Self}, CryptType => 'SMIME' );
         if ($CryptObjectSMIME) {
             my @PublicKeys = $CryptObjectSMIME->CertificateSearch(
-                Search => $SearchAddress[0]->address(),
+                Search => lc($SearchAddress[0]->address()),
             );
             for my $DataRef (@PublicKeys) {
                 my $EndDate = '';

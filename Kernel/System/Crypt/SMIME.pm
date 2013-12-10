@@ -1850,6 +1850,10 @@ sub _FetchAttributesFromCert {
         $AttributesRef->{Subject} =~ s{\/}{ }xmsg;
         $AttributesRef->{Subject} =~ s{=}{= }xmsg;
     }
+    if ( $AttributesRef->{Email} ) {
+	$AttributesRef->{Email} = lc($AttributesRef->{Email});
+	}
+
 
     my %Month = (
         Jan => '01', Feb => '02', Mar => '03', Apr => '04', May => '05', Jun => '06',
